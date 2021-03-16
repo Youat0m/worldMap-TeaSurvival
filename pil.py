@@ -1,7 +1,14 @@
 from PIL import Image, ImageDraw ,ImageColor
 import json
-file = open(str(input("file name: ")), 'r')
-array =  json.loads(file.read())
+try:
+	file = open(str(input("file name: ")), 'r')
+except:
+	print("file open err")
+	input()
+try:
+	array =  json.loads(file.read())["map"]
+except:
+	print("world load err")
 SIZE = int(input("SIZE: "))
 image_size = len(array)
 SEC_SIZE = SIZE - 1
