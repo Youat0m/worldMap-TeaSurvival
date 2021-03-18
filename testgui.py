@@ -10,6 +10,7 @@ class app():
     filemenu = Menu(menu)
     save = Menu(filemenu)
     txt = scrolledtext.ScrolledText(root, width=60, height=40)
+    label = Label(root, text = 'ошибка открытия файла')
     def __init__(self):
         self.root.geometry("1920x1080")
         self.root.config(menu = self.menu) 
@@ -29,8 +30,11 @@ class app():
             self.world = list(GetWorld(filename = self.worldfile))
         except:
             self.txt.insert(INSERT,'open file error')
+            self.label.grid(column = 0, row =1 )
         else:
+            self.txt.delete(1.0, END)
             self.txt.insert(INSERT, str(self.world))
+            self.label.grid_remove()
     def saveworld(self):
         self.world = json.loads(self.txt.get(1.0, END))
     def saveImage(self):
