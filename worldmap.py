@@ -24,7 +24,7 @@ def createPhoto(size, tiles , array):
 	for i in range(len(array)):
 		for j in range(len(array)):
 			draw.rectangle((size * i,size* j,(size* i) + SEC_SIZE,(size* j) + SEC_SIZE), fill = tiles[array[i][j]])
-			print('[INFO] '+ size* i, tiles[array[i][j]])
+			print('[INFO] ', size* i, tiles[array[i][j]])
 	img.save("test.png")
 	img.show()
 
