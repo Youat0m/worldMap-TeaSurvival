@@ -25,8 +25,12 @@ class app():
         self.root.mainloop()
     def openfile(self):
         self.worldfile = filedialog.askopenfilename(filetypes = [('TeaSurvival world files','*.js*'),('JSON files','*.json'),('txt files','*.txt'),('all files','*')])
-        self.world = list(GetWorld(filename = self.worldfile))
-        self.txt.insert(INSERT, str(self.world))
+        try:
+            self.world = list(GetWorld(filename = self.worldfile))
+        except:
+            self.txt.insert(INSERT,'open file error')
+        else:
+            self.txt.insert(INSERT, str(self.world))
     def saveworld(self):
         self.world = json.loads(self.txt.get(1.0, END))
     def saveImage(self):

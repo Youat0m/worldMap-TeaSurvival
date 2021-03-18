@@ -9,8 +9,8 @@ def GetWorld(filename:str):
 		input()
 	try:
 		array =  json.loads(file.read())["map"]
-	except:
-		print("world load err")
+	except BaseException as err:
+		return False
 	return array
 # bulding = ['rgb(0,255,0)','rgb(255,255,0)','rgb(80,80,80)','rgb(0,130,0)','rgb(255,150,0)','rgb(128,0,128)','rgb(100,50,0)','rgb(250,220,100)','rgb(0,0,0)','rgb(100,100,100)','rgb(200,200,200)','rgb(0,130,40)','rgb(0,130,60)','yellow','rgb(250,220,100)','rgb(0,0,0)','rgb(0,0,0)','rgb(250,250,100)','rgb(250,250,100)','rgb(250,250,100)']
 

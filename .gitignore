@@ -2,3 +2,6 @@ world.json
 test.png
 .vscode
 __pycache__
+dist
+build
+*.spec
