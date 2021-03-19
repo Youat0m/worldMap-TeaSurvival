@@ -23,6 +23,7 @@ class app():
         self.save.add_command(label = "мир TeaSurvival", command = self.createArray)
         self.filemenu.add_cascade(label = "сохранить как" , menu = self.save)
         self.menu.add_cascade(label = 'файл', menu = self.filemenu)
+        self.menu.add_command(label = 'открыть холст', command = self.createCanvas)
         self.root.mainloop()
     def openfile(self):
         self.worldfile = filedialog.askopenfilename(filetypes = [('TeaSurvival world files','*.js*'),('JSON files','*.json'),('txt files','*.txt'),('all files','*')])
@@ -52,6 +53,10 @@ class app():
     def createJSON(self):
         arFile = open(str(filedialog.asksaveasfilename(filetype=[('JSON file','*.json')])),'w')
         arfile.write(json.dump(self.world))
+    def createCanvas(self):
+        canv = Canvas(self.root, width=len(self.world) * 2, height=len(self.world) * 2, bg='white')
+        print
+        canv.grid(column = 3, row = 0)
 
 if __name__ == "__main__":
     a = app()
